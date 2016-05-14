@@ -1,8 +1,9 @@
 var express = require('express'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
-    sessions        = require('./routes/sessions'),
+    // sessions        = require('./routes/sessions'),
     passport = require('passport'),
+    path = require('path'),
     app = express();
 
 
@@ -46,14 +47,19 @@ var logMiddleware = function (req, res, next) {
     next();
 };
 
+
 app.use('/', logMiddleware);
-
-app.use('/auth', require('./routes/authentication'));
-
-app.get('/sessions', sessions.findAll);
-app.get('/sessions/:id', sessions.findById);
-
+app.use('/auth', require('./app/routes/authentication'));
 app.set('port', process.env.PORT || 5000);
+
+
+
+app.use(express.static(path.join(__dirname, './node_modules')));
+    // app.use(express.static(path.join(__dirname, './bower_components')));
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '/app/views/index.html'));
+})
 
 connectDB()
 .then(function(){
