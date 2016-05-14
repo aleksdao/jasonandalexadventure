@@ -13,6 +13,7 @@ var schema = mongoose.Schema({
 	},
 	time: {
 		type: Date,
+		default: Date.now,
 		required: true
 	},
 	activity: {
@@ -22,4 +23,4 @@ var schema = mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('Hangout', schema);	
+module.exports = mongoose.model('Hangout', schema);
