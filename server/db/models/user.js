@@ -9,6 +9,9 @@ var schema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	photos: {
+		type: [String]
+	}
 	age: {
 		type: Number,
 		required: true
