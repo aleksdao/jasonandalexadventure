@@ -16,17 +16,30 @@ var schema = new mongoose.Schema({
 		type: Number,
 		// required: true
 	},
-	likes:[
-    {
-      experienceId: {type: Schema.Types.ObjectId, ref: 'Experience'},
-      quantity: Number,
-      dateAdded: Date,
-      expired: {
-        type: Boolean,
-        default: false
-      }
-    }
-  ],
+	likes: [
+		{
+			userId: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'User'
+			}
+		}
+	],
+	matches: [
+		{
+			userId: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'User'
+			}
+		}
+	],
+	blocked: [
+		{
+			userId: {
+				type: mongoose.Schema.Types.ObjectId,
+				ref: 'User'
+			}
+		}
+	],
 	facebook: {
 		id: String,
 	},
