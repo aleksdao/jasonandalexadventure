@@ -10,17 +10,18 @@ var schema = mongoose.Schema({
 		required: true
 	},
 	photos: {
-		type: [String]
+		type: String
 	},
 	category: {
 		type: String,
-		required: true
+		required: true,
+		enum: ['Ice Cream', 'Drinks', 'Coffee']
 	},
 	priceRange: {
 		type: String,
 		required: true,
 		enum: ['$', '$$', '$$$', '$$$$']
-	}	
+	}
 });
 
 module.exports = mongoose.model('Activity', schema);
