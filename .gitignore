@@ -2,3 +2,5 @@
 server/node_modules
 npm-debug.log
 node_modules
+conference
+.DS_Store
