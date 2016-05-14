@@ -56,7 +56,7 @@ app.set('port', process.env.PORT || 5000);
 
 app.use(express.static(path.join(__dirname, '../node_modules')));
 app.use(express.static(path.join(__dirname, '../bower_components')));
-app.use(express.static(path.join(__dirname), '../browser'));
+app.use(express.static(path.join(__dirname, '../browser')));
 
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '/app/views/index.html'));
