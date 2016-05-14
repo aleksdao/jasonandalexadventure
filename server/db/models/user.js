@@ -11,7 +11,7 @@ var schema = new mongoose.Schema({
 	},
 	photos: {
 		type: [String]
-	}
+	},
 	age: {
 		type: Number,
 		required: true

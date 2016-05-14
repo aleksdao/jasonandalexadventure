@@ -7,7 +7,7 @@ var schema = mongoose.Schema({
 		required: true
 	},
 	user: {
-		typeL mongoose.Schema.Types.ObjectId,
+		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User',
 		required: true
 	}

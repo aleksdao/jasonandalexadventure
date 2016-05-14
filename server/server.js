@@ -4,6 +4,9 @@ var express = require('express'),
     sessions        = require('./routes/sessions'),
     app = express();
 
+var connectDB = require('./db')
+var mongoose = require('mongoose');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -22,6 +25,11 @@ app.get('/sessions/:id', sessions.findById);
 
 app.set('port', process.env.PORT || 5000);
 
-app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
+connectDB()
+.then(function(){
+	console.log('connect DB successfully');
+	app.listen(app.get('port'), function () {
+    	console.log('Express server listening on port ' + app.get('port'));
+	});
+})
+
