@@ -26,6 +26,36 @@ router.get('/:id', function (req, res, next) {
   res.send(req.user);
 })
 
+router.get('/:id/like/:potentialId', function (req, res, next) {
+  req.user.likes.push(req.params.potentialId);
+  req.save()
+    .then(function (currentUser) {
+      return User.findById(req.params.potentialId)
+    })
+    .then(function (potentialMatchUser) {
+      if (potentialMatchUser.likes.indexOf(currentUser._id) {
+        return Hangout.create({
+          firstUser: req.user._id,
+          secondUser: potentialMatchUser._id,
+          activity: findARandomActivity
+        })
+      })
+    })
+    .then(function (createdHangout) {
+      res.send(createdHangout);
+    })
+
+
+})
+
+router.get('/:id/dislike/:potentialId', function (req, res, next) {
+  req.user.blocked.push(req.params.potentialId);
+  req.save()
+    .then(function (updatedUser) {
+      res.sendStatus(200);
+    })
+})
+
 router.get('/:id/reviews', function (req, res, next) {
   res.send(req.user.reviews);
 })

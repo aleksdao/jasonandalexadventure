@@ -1,0 +1,23 @@
+{
+  "name": "stackathon",
+  "version": "1.0.0",
+  "description": "In this tutorial, you learn how to build a native-like mobile application with Ionic and AngularJS. You build a Conference application that allows the attendees of the conference to browse through the list of sessions, and share information on Facebook.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aleksdao/jasonandalexadventure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksdao/jasonandalexadventure/issues"
+  },
+  "homepage": "https://github.com/aleksdao/jasonandalexadventure",
+  "dependencies": {
+    "passport": "^0.3.2",
+    "passport-uber": "0.0.1"
+  }
+}

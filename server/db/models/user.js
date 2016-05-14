@@ -3,27 +3,35 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
 	firstName: {
 		type: String,
-		required: true
+		// required: true
 	},
 	lastName: {
 		type: String,
-		required: true
+		// required: true
 	},
 	photos: {
 		type: [String]
 	},
 	age: {
 		type: Number,
-		required: true
+		// required: true
 	},
-	//how to create FB profile?
-	matches: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
+	likes:[
+    {
+      experienceId: {type: Schema.Types.ObjectId, ref: 'Experience'},
+      quantity: Number,
+      dateAdded: Date,
+      expired: {
+        type: Boolean,
+        default: false
+      }
+    }
+  ],
+	facebook: {
+		id: String,
 	},
-	blocked: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
+	email: {
+		type: String
 	}
 });
 
